@@ -1,6 +1,6 @@
 # CS324 Web Development Cheat Sheet
 
-> **⚠️ Important: This is a graded activity. Please read the instructions carefully.**
+> **⚠️ Important: This may be a graded activity. Please read the instructions carefully.**
 
 ## 📌 Lecture Assignments & Deadlines
 
