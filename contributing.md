@@ -1,4 +1,63 @@
-# Contributing to CS324 Web Dev Cheat Sheet
+# CS324 Web Development Cheat Sheet
+
+> **⚠️ Important: This is a graded activity. Please read the instructions carefully.**
+
+## 📌 Lecture Assignments & Deadlines
+
+Each lecture will be assigned to a student. For example:
+
+- **Lecture 01 → 04072413001**
+- **Lecture 02 → 04072413003**
+- **Lecture 03 → 04072413004**
+- and so on.
+
+We have approximately **32 or fewer lectures**, while there are **36+ students** in the class. Therefore, after the midterm examination, **two students may be assigned to a single lecture**.
+
+### ⏰ Submission Period
+
+Each student will have **one week** to complete and submit their assigned portion of the cheat sheet.
+
+For example:
+
+- If **Lecture 01** was held on **Monday, 7 September**, the assigned student may submit their contribution **any time before 14 September**.
+- Similarly, if **Lecture 02** was held on **Thursday, 10 September**, its submission deadline will be **before the WAD class on 17 September**.
+
+The same **one-week submission cycle** will be followed for all subsequent assignments.
+
+I will try to remind you a few days before your deadline. **Please remain vigilant and keep track of your assigned lecture and deadline.**
+
+### ⚠️ Submission Policy
+
+```text
+IF you are unable to submit your work
+{
+    Inform me before class.
+}
+ELSE
+{
+    The matter will be reported accordingly.
+}
+
+
+3001 = lec 1 
+3003 = lec 2
+3004 = lec 3
+3005 = lec 4
+3006 = lect 5
+3007 = lect 6
+3008 = lect 7
+3009 = lect 8
+3010 = lect 9
+3011 = lect 10
+3012 = lect 11
+3013 = lect 12
+3015 = lect 13
+3017 = lect 14
+3018 = lect 15
+3019 = lect 16
+more according to registration number
+
+## Contributing to CS324 Web Dev Cheat Sheet
 
 Thanks for contributing! Follow these steps to submit your week's content.
 
