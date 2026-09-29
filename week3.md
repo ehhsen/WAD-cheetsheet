@@ -10,8 +10,8 @@ Lecture.06
 => Regular Expressions:
 1. '$' - end of line ( e.g: href '$' = ".pdf" )
 2. '^' - start of line ( e.g: href '^' = "http" )
-3.  * - finding specific word anywhere  ( e.g: href '*' = "qau" ) (finding 'qau' within qau website)
-4. '~' - matching an exact word ( e.g: href '~' = "books" )
+3.  *  finding specific word anywhere  ( e.g: href '*' = "qau" ) (finding 'qau' within qau website)
+4.  ~(tilda) - matching an exact word '( e.g: href '~' = "books" )'
 
 
 
