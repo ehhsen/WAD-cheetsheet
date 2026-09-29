@@ -161,3 +161,25 @@ p       → Element
 :hover  → Pseudo-class
 ::after → Pseudo-element
 ```
+content added by muhammad khizar: Note: Lecture 6 was assigned to me (M.Khizar (04072413008)) and I completed my task , unfortunately , 007 (Syed Mehmood) copied pasted same task of mine
+Lecture.06
+
+=>Selectors types:
+
+Universal Selector -> *{}
+Element Selector -> element_name {}
+Class Selector -> .{}
+Attribute Selector -> [attribute_name] {}
+=> Regular Expressions:
+
+'$' - end of line ( e.g: href '$' = ".pdf" )
+'^' - start of line ( e.g: href '^' = "http" )
+finding specific word anywhere ( e.g: href '*' = "qau" ) (finding 'qau' within qau website)
+(tilda) - matching an exact word '( e.g: href '' = "books" )'
+=>Pseudo-Class selectors: . it describes the "state" of an element . e.g. a:link , a:visited , a: hover, :first/last-child , :nthchild . syntax: ':' + class
+
+=>Pseudo-element selectors: . it describes the position of an element . e.g. :first-letter , :first-line
+
+=>Contextual Selectors (Combinators): . '>' - direct child . '+' - adjacent sibling . '~' - general sibling
+
+=>Specificity: Precedence/Sequence of applying styles
