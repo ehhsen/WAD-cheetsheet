@@ -40,7 +40,7 @@ Fixed                          The element is fixed in a specific position in th
  sticky                        The element is positioned in according to the normal flow, and then 
                                offset relative to its nearest scrolling ancestor. This is used to allow 
                                an item to scroll and then stay fixed in position once its scroll position
-                               is reached.     
+                               is reached. 2
                                
                                            
 
