@@ -1,4 +1,38 @@
-## Lecture 13: JavaScript Arrays & Objects AMNA ABAIDULLAH'S PART
+## JavaScript - Language Fundamentals
+
+### Variables and Data Types
+
+- **let:** can be reassigned, block scoped. This is the default choice.
+- **const:** can't be reassigned, must be given a value right away. Objects and arrays declared with it can still be changed inside.
+- **var:** the old way. Function scoped and can be redeclared. Just don't use it.
+- **Primitive types:** `number`, `string`, `boolean`, `undefined`, `null`, `symbol`, `bigint`. Everything else (arrays, objects, functions) is an object.
+- **Template literals:** backticks let you use variables into a string, like `` `Hello ${name}` ``.
+- **Checking types:** `typeof x`.
+
+| Code | Result |
+| ---- | ------ |
+| `"5" + 2` | `"52"` (+ joins as soon as a string is involved) |
+| `"5" - 2` | `3` (every other operator converts to number) |
+| `Number("abc")` | `NaN` |
+| `NaN === NaN` | `false`, so use `Number.isNaN(x)` |
+| `5 == "5"` | `true` (loose, converts first) |
+| `5 === "5"` | `false` (strict, so use this one) |
+
+### Conditionals
+
+- **if / else if / else:** same as C++ or Java.
+- **Falsy values:** `false`, `0`, `""`, `null`, `undefined`, `NaN`. Everything else is truthy, even `"0"`, `"false"`, `[]` and `{}`.
+- **switch:** compares with `===`. Forget `break` and it keeps running into the next case.
+- **Ternary:** `cond ? a : b`, works like C++ but gives you a value you can store.
+- **`&&` and `||`:** these return one of the actual values, not just true/false. `a || b` gives `a` if it's truthy, else `b`, so it's used for defaults. `a && b` gives `b` only if `a` is truthy.
+
+
+### Loops
+
+- **for, while & do..while:** Nothing newly (surely)
+- **break / continue:** work as expected.
+- **For-In & For-Of:** `for (let key in obj)` loops through object property keys; `for (let val of arr)` loops through iterable values. 
+
 
 ### Arrays
 
@@ -74,6 +108,56 @@ const student = {
 
 JSON is a text format for sending data. It replaced XML.
 Flow: form data, object, stringify, server, string, parse, show on page.
+
+
+### Functions
+
+Three ways to write one:
+
+```js
+function add(a, b) { return a + b; }            // declaration
+const add2 = function (a, b) { return a + b; }; // expression
+const add3 = (a, b) => a + b;                    // arrow
+```
+
+- **Hoisting:** declarations can be called before the line where they're written. Expressions and arrows can't.
+- **return:** no return means the function gives back `undefined`.
+- **Arguments:** missing ones become `undefined`, extra ones are ignored. No error either way.
+- **Default values:** `function greet(name = "friend") {}`
+- **Rest parameter:** `function sum(...nums) {}` collects all the extra arguments into an array. It has to be the last parameter.
+- **Arrow functions:** with no braces the value is returned automatically.
+- **Callbacks:** functions are values, so you can pass one into another function.
+- **Passing data in:** primitives are copied, so changing them inside doesn't affect the outside. Objects and arrays are passed as references, so changing them inside **does** change the original.
+
+### Scope and Closures
+
+| Scope | Where it applies |
+| ----- | ---------------- |
+| Global | Declared outside everything, visible everywhere |
+| Function | Declared inside a function, invisible outside it |
+| Block | `let`/`const` inside `{ }`, gone after the closing brace |
+
+- **var ignores blocks:** it only respects function scope, which is why people avoid it.
+- **Lexical scope:** an inner function can read variables from the functions around it, but the outer one can't read the inner one's.
+- **Hoisting of variables:** `var` is hoisted and starts as `undefined`. `let` and `const` are hoisted too, but touching them before their declaration line throws an error.
+- **Closure:** a function that remembers the variables from where it was created, even after the outer function has finished.
+
+```js
+function makeCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const c = makeCounter();
+c(); // 1
+c(); // 2
+```
+
+`count` is basically private here. Nothing outside can touch it except the returned function.
+
 
 ### Important things
 
