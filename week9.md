@@ -83,3 +83,108 @@ DOM Manipulation : Used to create, modify, style, or remove HTML elements using 
 Example : document.createElement("p");
 Const result = outer();
 Result();
+
+## Lec 15 (5 Nov) – Events
+
+### 9.3 Events
+
+#### Event handling steps
+1. **Define** handler (a callback function)
+2. **Register** it on an element with `addEventListener`
+3. Event is **triggered** (user/page action)
+4. Handler **executes**
+
+```js
+function simpleHandler() { alert("clicked"); }
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", simpleHandler);      // named function
+
+btn.addEventListener("click", function () { ... }); // anonymous function
+btn.addEventListener("click", () => { ... });       // arrow function
+```
+
+#### NodeList vs Node
+- Only a **single node** has `addEventListener()`, a **NodeList does not**
+- Loop through the list and register on each node
+
+```js
+const btns = document.querySelectorAll("#list button");
+for (let bt of btns) {
+  bt.addEventListener("click", function () { ... });
+}
+```
+
+#### Older approaches (avoid)
+| Approach | Example | Problem |
+|---|---|---|
+| Inline | `<input onclick="handler()">` | Mixes HTML and JS, hard to maintain |
+| Event property | `btn.onclick = function () {...}` | Only **one** handler per event per element |
+
+#### Page loading and the DOM
+Run DOM code only after the elements exist.
+
+| Event | Fires when | Use |
+|---|---|---|
+| `window.load` | Whole page loaded (images, CSS too) | Slow, usually the wrong choice |
+| `document.DOMContentLoaded` | HTML fully downloaded and parsed | **Preferred** |
+
+```js
+document.addEventListener("DOMContentLoaded", function () {
+  // all DOM code here (can be placed in <head>)
+});
+```
+
+#### Event object
+- Browser creates it on trigger; receive it as the callback parameter (usually `e`)
+- Common properties:
+  - `e.target`: element that **generated** the event (always works)
+  - `e.currentTarget`: element whose handler is **currently running**
+  - `e.clientX`, `e.clientY`: cursor position (mouse events)
+  - `e.key`: key pressed (keyboard events)
+
+```js
+function menuHandler(e) {
+  e.target.classList.toggle("selected");
+  console.log(e.clientX, e.clientY);
+}
+item.addEventListener("click", menuHandler);
+```
+- `this` inside a normal-function handler = the element; with an arrow function it is **not**
+- A handler outside the loop can't use the loop variable (`item`) because it is out of lexical scope, so use `e.target`
+
+#### Event propagation
+When an event fires, it travels through the ancestors in two phases:
+
+| Phase | Direction |
+|---|---|
+| **Capturing** | Outermost ancestor (`<html>`) → down to target |
+| **Bubbling** (default) | Target → up to outermost ancestor |
+
+```js
+sec.addEventListener("click", handler, { capture: true }); // listen in capture phase
+```
+
+**Problem:** clicking an inner element also triggers parents' handlers.
+**Fix:** `e.stopPropagation()` stops both capturing and bubbling.
+
+```js
+btn.addEventListener("click", function (e) {
+  e.stopPropagation();   // parent handlers won't run
+  incrementCount(e);
+});
+```
+
+#### Event delegation
+Put **one** listener on the parent and rely on bubbling, instead of a listener on every child.
+- Saves memory
+- Works for elements added or removed dynamically
+
+```js
+const parent = document.querySelector("#list");
+parent.addEventListener("click", function (e) {
+  // check the target is one of the children we want
+  if (e.target && e.target.nodeName == "IMG") {   // nodeName is UPPERCASE
+    doSomething(e.target);
+  }
+});
+```
