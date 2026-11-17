@@ -187,4 +187,33 @@ parent.addEventListener("click", function (e) {
     doSomething(e.target);
   }
 });
+
+
+
+umar farooq 04072413022
+•	e.target = clicked elements.
+•	e.currentTarget = element with eventlistener.
+•	e.toggle('open')= flips.
+•	e.preventDefault() stops submission.
+•	e.key = pressed key.
+•	data-*: data-country="Peru" → el.dataset.country.
+Mouse Event	Fires when
+click / dblclick	Clicked / double clicked
+mousedown / mouseup	Pressed / released 
+mouseover / mouseout	Moved onto / off element
+mousemove	Moved while over element
+
+Keyboard	Fires when
+keydown	Key pressed
+keyup	Key released
+
+Form Event	Fires when
+blur / focus	Element loses / gains focus
+change	textarea, <select> value changed
+reset	Form reset
+select	Text selected (block copy/paste)
+submit	Form submitted (before server)
+
+
+
 ```
